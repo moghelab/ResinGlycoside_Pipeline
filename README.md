@@ -1,12 +1,15 @@
 # ResinGlycoside_Pipeline
  Scripts for processing LCMS data and annotating resin glycoside like peaks
 
-Requirement: Unix workspace, Python
+## Requirements
+Unix workspace, Python
 
 Before using these scripts, obtain exported data from MS-DIAL as described in the Methods paper. You need two types of files from your side:
 1. Peak area files
 2. MGF files.
-These can be individual samples or aligned files. After that, follow the following steps:
+These can be individual samples or aligned files.
+
+## How to run the scripts
 
 **Step 1:** Download this entire folder to your Unix workspace. This folder has all the demo files and standard input files needed for the scripts to work. 
 
@@ -46,6 +49,21 @@ python parse_MSDIAL_wrapper.py -filelist filelist.tab
 **Step 6:** Run the wrapper once again with the correct file name
 
 **Step 7:** Sit back and relax
+
+## OUTPUTS
+This script produces the following output files (if your input filelist name was filelist.tab)
+
+| Filename | Location   | Description |
+| -------- | ------------ | ------------ |
+| filelist.tab.mz132.combined.stats | Main folder | # of RG-like peaks containing the 132 fragment (pentose) |
+| filelist.tab.mz146.combined.stats | Main folder | # of RG-like peaks containing the 146 fragment (deoxyhexose) |
+| filelist.tab.mz162.combined.stats | Main folder | # of RG-like peaks containing the 162 fragment (hexose) |
+| filelist.tab.nid1.id2.tab | Main folder | A well-formatted file containing annotations of individual MS/MS peaks in each RG-like peaks in the alignment file |
+| <fn>.mz132* and mz146* and mz162* | 1_PeakArea | Intermediate files created while parsing the peak area files |
+| <fn>.mz132* and mz146* and mz162* | 2_MGF | Intermediate files created while parsing the mgf files |
+
+* The stats files can be combined to obtain a comprehensive view of RG-like peaks in each sample/series/species
+* The *.nid1.id2.tab file can be separated into different files of each sample/series/species. For now, all alignment files listed in filelist.tab are included in this file.
 
 For further questions, email Gaurav Moghe
 
