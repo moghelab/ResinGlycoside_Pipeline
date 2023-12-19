@@ -2,7 +2,9 @@
  Scripts for processing LCMS data and annotating resin glycoside like peaks
 
 ## Requirements
-Unix workspace, Python
+1. Unix workspace
+2. Python
+3. Pandas, NumPy
 
 Before using these scripts, obtain exported data from MS-DIAL as described in the Methods paper. You need two types of files from your side:
 1. Peak area files
